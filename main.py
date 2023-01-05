@@ -1,5 +1,6 @@
 import random
 import math
+
 def createGame(k):
     board = []
     for x in range(k*k-1):
@@ -81,7 +82,7 @@ def swap(board, move, k):
         temp = board[indexSwap]
         board[indexSwap] = "X"
         board[blankIndex] = temp
-        return True
+        return board
     else:
         return False
 
@@ -123,24 +124,6 @@ def edges(k):
 def indexToCoordinates(index, k):
     return ((index // k), (index % k))
 
-            
-k = 3
-board = createGame(k)
-while (checkValid(board, k) == False):
-    board = createGame(k)
-printBoard(board, k)
 
-while (gameWon(board, k) == False):
-    move = input("Move: ")
-    if (move == "S"):
-        print("Here's the solution!")
-    while (swap(board, move, k) == False):
-        if (move == "S"):
-            print("Here's the solution")
-            # solver()
-            break
-        else:
-            move = input("Illegal Move, Try Again: ")
-    printBoard(board, k)
 
-print("You finished!")
+
